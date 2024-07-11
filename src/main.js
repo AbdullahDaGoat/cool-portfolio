@@ -13,8 +13,6 @@ function initializeMusic() {
 }
 
 window.addEventListener('load', () => {
-    initializeMusic();
-    // Scroll to the top of the page when the window loads
     window.scrollTo(0, 0);
 });
 
