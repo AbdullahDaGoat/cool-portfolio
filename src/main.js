@@ -4,12 +4,17 @@ import './terminal.js';
 let music;
 
 function initializeMusic() {
-  music = new Audio('./Music.mp3');
-  music.loop = true;
-  music.play().catch(error => {
-    console.log("Auto-play was prevented. Please use the play button.");
-  });
-}
+    music = new Audio('./Music.mp3');
+    music.loop = true;
+    music.play()
+      .then(() => {
+        console.log("Music playback started.");
+      })
+      .catch(error => {
+        console.error("Error playing music:", error);
+      });
+  }
+  
 
 function toggleMusic() {
   if (!music) {
