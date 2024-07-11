@@ -14,7 +14,7 @@ function initializeMusic() {
 }
 
 function toggleMusic() {
-    initializeMusic(); // Ensure music is initialized before toggling
+    initializeMusic(); 
     if (music.paused) {
         music.play();
     } else {
@@ -22,7 +22,10 @@ function toggleMusic() {
     }
 }
 
-document.querySelector('.music-toggle').addEventListener('click', toggleMusic);
+document.addEventListener('DOMContentLoaded', function() {
+    const musicButton = document.getElementById('music-button');
+    musicButton.addEventListener('click', toggleMusic);
+});
 
 let typewriterIndex = 0;
 const typewriterText = document.getElementById('typewriter-text');
