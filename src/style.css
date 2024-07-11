@@ -10,10 +10,6 @@
     --accent-color-dark: #00cc77;
 }
 
-html, body {
-    height: 100%;
-}
-
 .typewriter {
     display: inline-block;
     overflow: hidden;
