@@ -1,39 +1,28 @@
 import './style.css';
 import './terminal.js';
 
-
 let music;
 
 function initializeMusic() {
-    music = new Audio('../Music.mp3');
-    music.loop = true;
-    music.play().catch(error => {
-        console.log("Auto-play was prevented. Please use the play button.");
-    });
+    if (!music) {
+        music = new Audio('../Music.mp3');
+        music.loop = true;
+        music.play().catch(error => {
+            console.log("Auto-play was prevented. Please use the play button.");
+        });
+    }
 }
-
-function hideLoader() {
-    document.querySelector('.loader').style.display = 'none';
-    window.scrollTo(0, 0);
-}
-
-// Simulate loader finish after 2 seconds (adjust as needed)
-setTimeout(hideLoader, 2000);
 
 function toggleMusic() {
-    if (!music) {
-        initializeMusic();
-    } else if (music.paused) {
+    initializeMusic(); // Ensure music is initialized before toggling
+    if (music.paused) {
         music.play();
     } else {
         music.pause();
     }
 }
-window.addEventListener('load', initializeMusic);
 
 document.querySelector('.music-toggle').addEventListener('click', toggleMusic);
-
-document.getElementById('music-message').addEventListener('click', initializeMusic);
 
 let typewriterIndex = 0;
 const typewriterText = document.getElementById('typewriter-text');
