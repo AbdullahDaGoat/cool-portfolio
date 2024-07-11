@@ -4,7 +4,7 @@ import './terminal.js';
 let music;
 
 function initializeMusic() {
-    music = new Audio('./Music.mp3');
+    music = new Audio('https://jumpshare.com/s/uLdsKcPz5xsGkBcLgBft');
     music.loop = true;
     music.play()
       .then(() => {
