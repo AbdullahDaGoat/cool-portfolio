@@ -12,9 +12,13 @@ function initializeMusic() {
     });
 }
 
-window.addEventListener('load', () => {
+function hideLoader() {
+    document.querySelector('.loader').style.display = 'none';
     window.scrollTo(0, 0);
-});
+}
+
+// Simulate loader finish after 2 seconds (adjust as needed)
+setTimeout(hideLoader, 2000);
 
 function toggleMusic() {
     if (!music) {
