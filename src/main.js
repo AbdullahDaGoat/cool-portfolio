@@ -1,32 +1,64 @@
+import youtubePlayer from 'youtube-player';
 import './style.css';
 import './terminal.js';
 
-let music;
+let player;
+let isMusicPlaying = false;
+const videoId = '47dtFZ8CFo8';
 
-function initializeMusic() {
-    music = new Audio('https://jumpshare.com/s/uLdsKcPz5xsGkBcLgBft');
-    music.loop = true;
-    music.play()
-      .then(() => {
-        console.log("Music playback started.");
-      })
-      .catch(error => {
-        console.error("Error playing music:", error);
-      });
-  }
-  
+function initializeYouTubePlayer() {
+    player = youtubePlayer('music-player', {
+        videoId: videoId,
+        playerVars: {
+            autoplay: 1,
+            controls: 0,
+            loop: 1,
+            playlist: videoId,
+        }
+    });
 
-function toggleMusic() {
-  if (!music) {
-    initializeMusic();
-  } else if (music.paused) {
-    music.play();
-  } else {
-    music.pause();
-  }
+    player.on('stateChange', onPlayerStateChange);
+    player.on('ready', onPlayerReady);
 }
 
-document.querySelector('.music-toggle').addEventListener('click', toggleMusic);
+function onPlayerReady() {
+    player.playVideo();
+}
+
+function onPlayerStateChange(event) {
+    if (event.data === window.YT.PlayerState.PLAYING) {
+        isMusicPlaying = true;
+    } else if (event.data === window.YT.PlayerState.PAUSED || event.data === window.YT.PlayerState.ENDED) {
+        isMusicPlaying = false;
+    }
+    updateMusicButtonIcon();
+}
+
+function toggleMusic() {
+    if (isMusicPlaying) {
+        player.pauseVideo();
+    } else {
+        player.playVideo();
+    }
+}
+
+function updateMusicButtonIcon() {
+    const musicButton = document.getElementById('music-button');
+    const musicIcon = musicButton.querySelector('i');
+
+    if (isMusicPlaying) {
+        musicIcon.classList.remove('fa-music');
+        musicIcon.classList.add('fa-pause');
+    } else {
+        musicIcon.classList.remove('fa-pause');
+        musicIcon.classList.add('fa-music');
+    }
+}
+
+document.getElementById('music-button').addEventListener('click', toggleMusic);
+
+// Initialize the YouTube player
+initializeYouTubePlayer();
 
 let typewriterIndex = 0;
 const typewriterText = document.getElementById('typewriter-text');
