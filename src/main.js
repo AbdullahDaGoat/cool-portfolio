@@ -2,7 +2,6 @@ import './style.css';
 import './terminal.js';
 
 let music;
-let hasInteracted = false;
 
 function initializeMusic() {
   music = new Audio('./Music.mp3');
@@ -21,9 +20,6 @@ function toggleMusic() {
     music.pause();
   }
 }
-
-
-window.addEventListener('click', initializeMusic);
 
 document.querySelector('.music-toggle').addEventListener('click', toggleMusic);
 
