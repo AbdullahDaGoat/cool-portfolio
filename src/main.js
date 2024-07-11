@@ -7,8 +7,6 @@ let music;
 function initializeMusic() {
     music = new Audio('../Music.mp3');
     music.loop = true;
-    
-    // Try to play music automatically
     music.play().catch(error => {
         console.log("Auto-play was prevented. Please use the play button.");
     });
@@ -26,6 +24,8 @@ function toggleMusic() {
 window.addEventListener('load', initializeMusic);
 
 document.querySelector('.music-toggle').addEventListener('click', toggleMusic);
+
+document.getElementById('music-message').addEventListener('click', initializeMusic);
 
 let typewriterIndex = 0;
 const typewriterText = document.getElementById('typewriter-text');
