@@ -22,16 +22,8 @@ function toggleMusic() {
   }
 }
 
-// Remove this block or replace playMusic() with toggleMusic()
-document.addEventListener('click', function(event) {
-  if (!hasInteracted) {
-    // playMusic();
-    toggleMusic(); // If you want to toggle music on click
-    hasInteracted = true;
-  }
-});
 
-window.addEventListener('load', initializeMusic);
+window.addEventListener('click', initializeMusic);
 
 document.querySelector('.music-toggle').addEventListener('click', toggleMusic);
 
