@@ -5,7 +5,7 @@ let music;
 let hasInteracted = false;
 
 function initializeMusic() {
-  music = new Audio('../Music.mp3');
+  music = new Audio('./Music.mp3');
   music.loop = true;
   music.play().catch(error => {
     console.log("Auto-play was prevented. Please use the play button.");
