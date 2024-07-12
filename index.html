@@ -18,17 +18,15 @@
     <div class="content">
        
         <header class="flex flex-col md:flex-row items-center justify-between py-4 px-4 md:px-8 text-white">
-            <div class="w-full md:w-1/3 flex justify-start mb-4 md:mb-0">
                 <iframe
                     title="Discord user embed"
-                    width="100%"
+                    width="370"
                     height="72"
                     frameborder="0"
                     sandbox="allow-scripts"
                     src="https://widgets.vendicated.dev/user?id=426878496468500493&theme=dark&banner=false&full-banner=false&rounded-corners=true&discord-icon=true&badges=true&guess-nitro=true&background-color=%23CBCBC3&foreground-color=%234cb34c"
                     class="md:w-340px"
                 ></iframe>
-            </div>
         
             <div class="w-full md:w-1/3 flex justify-end">
                 <button id="music-button" class="music-toggle text-2xl hover:text-green-400 px-3 py-2">
@@ -39,9 +37,6 @@
         </header>
         
         <div id="music-player" style="display: none;"></div>
-        
-        
-
         <main>
             <div id="music-video"></div>
             <section class="hero parallax flex flex-col justify-center items-center text-center p-8" aria-label="Introduction">
@@ -66,69 +61,34 @@
             </section>
 
             <section id="projects" class="projects mt-16">
-                <h2 class="text-3xl mb-8 text-center hover:text-green-400">Featured Projects <i class="fas fa-code mr-2"></i></h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="project-card">
-                        <h3>Project One</h3>
-                        <p>A brief description of the project goes here.</p>
-                    </div>
-                    <div class="project-card">
-                        <h3>Project Two</h3>
-                        <p>A brief description of the project goes here.</p>
-                    </div>
-                    <div class="project-card">
-                        <h3>Project Three</h3>
-                        <p>A brief description of the project goes here.</p>
-                    </div>
-                </div>
+                <h2 class="text-3xl mb-8 text-center hover:text-green-400">Terminal <i class="fa-solid fa-user-secret"></i></h2>
             </section>
 
             <br/>
             <br/>
 
-           <section id="terminal" class="terminal rounded-lg shadow-lg">
-            <div class="terminal-header">
-              <div class="terminal-dots">
-                <div class="terminal-dot red"></div>
-                <div class="terminal-dot yellow"></div>
-                <div class="terminal-dot green"></div>
-              </div>
-              <div id="terminal-title" class="terminal-title hover:text-green-400">Terminal</div>
+            <div class="shadow-[0_0_20px_rgba(0,255,0,0.5)] rounded-lg overflow-hidden custom-scrollbar">
+                <section id="terminal" class="terminal overflow-hidden rounded-lg shadow-lg custom-scrollbar">
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <div class="terminal-dot red" data-action="close"></div>
+                            <div class="terminal-dot yellow" data-action="minimize"></div>
+                            <div class="terminal-dot green" data-action="maximize"></div>
+                        </div>
+                        <div id="terminal-title" class="terminal-title">NeoTech Terminal v3.14</div>
+                    </div>
+                    <div id="terminal-container" class="terminal-container custom-scrollbar"></div>
+                </section>
             </div>
-            <div id="terminal-container" class="terminal-container"></div>
-          </section>
+            
 
           <br/>
           <br/>
 
           <div class="container mx-auto p-4 flex flex-col md:flex-row items-center justify-center">
             <div class="mx-auto max-w-screen-lg px-4 py-8 rounded-lg shadow-md">
-                <h2 class="text-2xl font-bold text-center mb-4 hover:text-green-400">Here's What I Know</h2>
+                <h2 class="text-2xl font-bold text-center mb-4 hover:text-green-400">My Tech Stack <i class="fa-solid fa-code"></i></h2>
                 <div id="globeContainer" style="width: 600px; height: 400px;" class="cursor-pointer"></div>
-            </div>
-                      
-            <div class="contact-form bg-gray-900 text-white p-6 rounded-lg shadow-lg mt-10 md:mt-0 md:ml-10 w-full md:w-1/2">
-                <h2 class="text-2xl font-bold mb-4 text-center hover:text-green-400">Contact Me <i class="fas fa-envelope mr-2"></i></h2>
-                <form action="https://api.web3forms.com/submit" method="POST" id="contact-form" class="space-y-4">
-                    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
-                    
-                    <div class="relative">
-                        <i class="fas fa-user absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-                        <input type="text" name="name" placeholder="Your Name" required class="w-full pl-10 p-3 border border-gray-700 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                    </div>
-                    <div class="relative">
-                        <i class="fas fa-envelope absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-                        <input type="email" name="email" placeholder="Your Email" required class="w-full pl-10 p-3 border border-gray-700 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                    </div>
-                    <div class="relative">
-                        <i class="fas fa-comment-dots absolute left-3 top-3 text-gray-400"></i>
-                        <textarea name="message" placeholder="Your Message" required class="w-full pl-10 p-3 border border-gray-700 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-indigo-600 text-white p-3 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 flex items-center justify-center">
-                        <i class="fas fa-paper-plane mr-2"></i>
-                        Send Message
-                    </button>
-                </form>
             </div>
         </div>
         </main>

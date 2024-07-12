@@ -11,9 +11,6 @@ style.innerHTML = `
     text-decoration: none;
     border-bottom: none;
   }
-  .xterm {
-    box-shadow: 0 0 10px #f0f0f0;
-  }
 `;
 document.head.appendChild(style);
 
@@ -118,6 +115,7 @@ const commands = {
     { name: 'E-commerce Platform', url: 'https://example.com/ecommerce' },
     { name: 'Task Management App', url: 'https://example.com/taskapp' }
   ],
+  contact: "Discord: @Sablinova",
   // Hidden Easter egg commands
   happybday: () => {
     term.writeln('Happy Birthday! 🎉');
@@ -323,10 +321,160 @@ function executeCommand(command) {
 }
 
 // Change header text every 10 seconds
-const headerTexts = ["Terminal", "How are you?", "Welcome", "Hello there!"];
+const headerTexts = 
+[
+  "Terminal",
+  "How are you?",
+  "Welcome",
+  "Hello there!",
+  "Hey, listen!",
+  "Loading awesomeness...",
+  "Wake up, Neo...",
+  "To infinity and beyond!",
+  "May the code be with you",
+  "404: Header not found",
+  "Knock, knock... Who's there?",
+  "I am Groot.",
+  "Up, up, down, down, left, right, left, right, B, A, Start!",
+  "All your base are belong to us.",
+  "Do or do not. There is no try.",
+  "Why did the developer go broke? Because they used up all their cache!",
+  "I'm sorry, Dave. I'm afraid I can't do that.",
+  "There's no place like 127.0.0.1",
+  "I see dead pixels.",
+  "The cake is a lie.",
+  "Trust me, I'm an engineer.",
+  "If you want to go fast, go alone. If you want to go far, go together.",
+  "Ctrl + Alt + Del",
+  "404: Wit not found",
+  "Always remember to CTRL + S",
+  "There's a glitch in the matrix.",
+  "You can't handle the code!",
+  "Error 404: Humor not found",
+  "Keep calm and code on.",
+  "Stay positive, debug the negative.",
+  "Coffee is the fuel that keeps the code running.",
+  "Coding: The art of turning caffeine into code.",
+  "There's no 'I' in 'team', but there is in 'code'",
+  "I'm not lazy, I'm just on energy-saving mode.",
+  "Why do programmers prefer dark mode? Less light, fewer bugs!",
+  "Debugging: being the detective in a crime movie where you're also the murderer.",
+  "If at first you don't succeed, call it version 1.0.",
+  "Unix is user-friendly. It's just very selective about who its friends are.",
+  "I'm not anti-social; I'm just not user-friendly.",
+  "Programmer (noun): An organism that turns caffeine into code.",
+  "Why do Java developers wear glasses? Because they can't C#!",
+  "Programming is like sex: one mistake and you have to support it for the rest of your life.",
+  "Sudo make me a sandwich.",
+  "Debugging: Removing needles from haystacks.",
+  "Why did the developer go broke? They used up all their cache!",
+  "There's no place like 127.0.0.1",
+  "I see dead pixels.",
+  "The cake is a lie.",
+  "Trust me, I'm an engineer.",
+  "If you want to go fast, go alone. If you want to go far, go together.",
+  "Ctrl + Alt + Del",
+  "404: Wit not found",
+  "Always remember to CTRL + S",
+  "There's a glitch in the matrix.",
+  "You can't handle the code!",
+  "Coding is like solving a puzzle, except you're creating the puzzle and someone else is solving it.",
+  "Error 404: Humor not found",
+  "Keep calm and code on.",
+  "Stay positive, debug the negative.",
+  "Coffee is the fuel that keeps the code running.",
+  "Coding: The art of turning caffeine into code.",
+  "There's no 'I' in 'team', but there is in 'code'",
+  "I'm not lazy, I'm just on energy-saving mode.",
+  "There are only 10 types of people in the world: those who understand binary, and those who don't.",
+  "Why do programmers prefer dark mode? Less light, fewer bugs!",
+  "Debugging: being the detective in a crime movie where you're also the murderer.",
+  "If at first you don't succeed, call it version 1.0.",
+  "Unix is user-friendly. It's just very selective about who its friends are.",
+  "I'm not anti-social; I'm just not user-friendly.",
+  "Programmer (noun): An organism that turns caffeine into code.",
+  "Why do Java developers wear glasses? Because they can't C#!",
+  "Programming is like sex: one mistake and you have to support it for the rest of your life.",
+  "Sudo make me a sandwich.",
+  "Debugging: Removing needles from haystacks.",
+  "Why did the developer go broke? They used up all their cache!",
+  "There's no place like 127.0.0.1",
+  "I see dead pixels.",
+  "The cake is a lie.",
+  "Trust me, I'm an engineer.",
+  "If you want to go fast, go alone. If you want to go far, go together.",
+  "Ctrl + Alt + Del",
+  "404: Wit not found",
+  "Always remember to CTRL + S",
+  "There's a glitch in the matrix.",
+  "You can't handle the code!",
+  "Coding is like solving a puzzle, except you're creating the puzzle and someone else is solving it.",
+  "Error 404: Humor not found",
+  "Keep calm and code on.",
+  "Stay positive, debug the negative.",
+  "Coffee is the fuel that keeps the code running.",
+  "Coding: The art of turning caffeine into code.",
+  "There's no 'I' in 'team', but there is in 'code'",
+  "I'm not lazy, I'm just on energy-saving mode.",
+  "Exploring the Cosmos",
+  "To Infinity and Beyond",
+  "One Small Step for Code",
+  "Houston, We Have a Program",
+  "Starship Coder",
+  "Navigating the Digital Galaxy",
+  "Coding at Warp Speed",
+  "Binary Star Systems",
+  "Debugging in Zero Gravity",
+  "Launching New Ideas",
+  "Stellar Algorithms",
+  "Quantum Computing Frontiers",
+  "AI: The Final Frontier",
+  "Nebula of Networks",
+  "Cosmic Code Compilation",
+  "Interstellar Internet",
+  "Space-Time Complexity",
+  "Martian Microservices",
+  "Asteroid Belt Databases",
+  "Lunar Logic Gates",
+  "Solar Flare Firewalls",
+  "Galactic Git Repositories",
+  "Supernova Scalability",
+  "Voyager's Virtual Machines",
+  "Terraform New Worlds",
+  "Deep Space Data Centers",
+  "Constellation Clusters",
+  "Plasma Processors",
+  "Event Horizon Encryption",
+  "Quasar Queries",
+  "Galactic Quantum Computers",
+  "Solar System Software",
+  "Interstellar Teleportation",
+  "Martian Web Servers",
+  "Asteroid Belt Encryption",
+  "Lunar Operating System",
+  "Solar Flare Operating System",
+  "Galactic Git Repositories",
+  "Supernova Scalability",
+  "Voyager's Virtual Machines",
+  "Terraform New Worlds",
+  "Deep Space Data Centers",
+  "Constellation Clusters",
+  "Plasma Processors",
+  "Event Horizon Encryption"
+];
 let headerIndex = 0;
 
 setInterval(() => {
   headerIndex = (headerIndex + 1) % headerTexts.length;
   document.getElementById('terminal-title').textContent = headerTexts[headerIndex];
-}, 5000);
+}, 2000);
+
+document.querySelectorAll('.terminal-dot').forEach(dot => {
+  dot.addEventListener('mouseenter', () => {
+    const action = dot.getAttribute('data-action');
+    dot.textContent = action === 'close' ? '✕' : action === 'minimize' ? '−' : '□';
+  });
+  dot.addEventListener('mouseleave', () => {
+    dot.textContent = '';
+  });
+});
